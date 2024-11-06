@@ -7,9 +7,9 @@ export default {
         monospace: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        primary: '#fff',
-        secondary: '#dfdedf',
-        highlight: '#9200ee',
+        primary: '#F0EDCF',
+        secondary: '#0B60B0',
+        highlight: '#40A2D8',
       },
     },
   },

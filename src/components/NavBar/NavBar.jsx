@@ -45,9 +45,17 @@ export default function NavBar({ activeLocation }) {
           <img src='./img/bg-black.png' alt='Logo' />
         </div>
       </Link>
-      <div className='hidden md:flex gap-6 font-bold text-lg'>
+      <div className='hidden md:flex gap-2 font-bold text-lg'>
         {items.map((it) => (
-          <Link key={it.to} to={it.to} className={it.to == activeLocation ? 'text-highlight' : 'text-primary'}>
+          <Link
+            key={it.to}
+            to={it.to}
+            className={
+              it.to == activeLocation
+                ? 'bg-highlight text-primary px-6 py-2 rounded-full'
+                : 'text-primary px-6 py-2 hover:text-secondary'
+            }
+          >
             {it.label}
           </Link>
         ))}
@@ -69,7 +77,11 @@ export default function NavBar({ activeLocation }) {
               <Link
                 key={it.to}
                 to={it.to}
-                className={it.to == activeLocation ? 'text-highlight' : 'text-primary'}
+                className={
+                  it.to == activeLocation
+                    ? 'bg-highlight text-primart px-6 py-2 rounded-full'
+                    : 'text-primary px-6 py-2 hover:text-secondary'
+                }
                 onClick={menuItemClicked}
               >
                 {it.label}

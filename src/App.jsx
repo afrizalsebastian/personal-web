@@ -34,7 +34,7 @@ export default function App() {
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>
-        <div className='fixed text-secondary bottom-4 left-2' style={{ writingMode: 'vertical-rl' }}>
+        <div className='fixed text-primary bottom-4 left-2' style={{ writingMode: 'vertical-rl' }}>
           © 2024 Afrizal Sebastian
         </div>
         <div className='fixed bottom-4 md:bottom-8 right-4 md:right-10 text-primary flex flex-col gap-4 md:gap-8'>
