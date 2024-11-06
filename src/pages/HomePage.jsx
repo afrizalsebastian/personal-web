@@ -1,6 +1,7 @@
 import PageTitle from '@components/PageTitle/PageTitle';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { TypeAnimation } from 'react-type-animation';
 import nodejs from '../assets/nodejs.png';
 import python from '../assets/python-language.png';
 
@@ -24,14 +25,17 @@ export default function HomePage() {
             ease: 'easeInOut',
           }}
           alt='nodejs'
-          className='absolute w-[150px] -left-4 -top-[150px]'
+          className='absolute w-[100px] md:w-[125px] lg:w-[150px] -left-4 -top-[100px] md:-top-[125px] lg:-top-[150px]'
         />
       </div>
-      <div className='text-center text-[48px] md:text-[84px] 3xl:text-[96px] z-10'>
+      <div className='text-center text-[36px] md:text-[72px] lg:text-[84px] 3xl:text-[96px] z-10'>
         Afrizal <span className='text-highlight'>Sebastian</span>
       </div>
-      <div className='text-center text-[28px] md:text-[48px] 3xl:text-[72px]'>
-        I'm <span className='text-secondary'>Software Engineer</span>
+      <div className='text-center text-[20px] md:text-[48px] 3xl:text-[72px]'>
+        I'm{' '}
+        <span className='text-secondary'>
+          <TypeAnimation sequence={['Web Developer', 4000, 'Software Engineer', 4000]} repeat={Infinity} />
+        </span>
       </div>
       <div className='relative'>
         <motion.img
@@ -44,15 +48,14 @@ export default function HomePage() {
             ease: 'easeInOut',
           }}
           alt='python'
-          className='absolute w-[150px] -right-4'
+          className='absolute w-[100px] md:w-[125px] lg:w-[150px] -right-4'
         />
       </div>
-      <div className='text-[18px] md:text-[32px] 3xl:text-[48px] text-center h-fit m-6'>
+      <div className='text-[18px] md:text-[28px] lg:text-[36px] 3xl:text-[48px] text-center h-fit m-6'>
         <Link className='px-8 py-2 bg-highlight rounded-xl' to='mailto:sebastiangurning@gmail.com'>
           Get in Touch
         </Link>
       </div>
-
       <div className='h-[50px]' />
     </motion.div>
   );

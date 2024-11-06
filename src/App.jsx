@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <div
-      className='text-primary flex flex-col items-center h-full w-full'
+      className='text-primary flex flex-col items-center h-full w-full overflow-hidden'
       style={{
         backgroundImage: `url(/img/bg-image.jpg)`,
         backgroundSize: 'cover',
@@ -34,18 +34,18 @@ export default function App() {
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>
-        <div className='fixed text-secondary bottom-2 left-2' style={{ writingMode: 'vertical-rl' }}>
+        <div className='fixed text-secondary bottom-4 left-2' style={{ writingMode: 'vertical-rl' }}>
           © 2024 Afrizal Sebastian
         </div>
-        <div className='fixed bottom-10 right-10 text-primary flex flex-col gap-8'>
+        <div className='fixed bottom-4 md:bottom-8 right-4 md:right-10 text-primary flex flex-col gap-4 md:gap-8'>
           <Link to='https://www.instagram.com/afrizalsebastian' target='_blank' className='hover:text-highlight'>
-            <FaInstagram size={40} />
+            <FaInstagram className='size-[30px] md:size-[40px] 2xl:size-[50px]' />
           </Link>
           <Link to='https://www.linkedin.com/in/afrizalsebastian' target='_blank' className='hover:text-highlight'>
-            <FaLinkedin size={40} />
+            <FaLinkedin className='size-[30px] md:size-[40px] 2xl:size-[50px]' />
           </Link>
           <Link to='https://www.github.com/afrizalsebastian' target='_blank' className='hover:text-highlight'>
-            <FaGithub size={40} />
+            <FaGithub className='size-[30px] md:size-[40px] 2xl:size-[50px]' />
           </Link>
         </div>
       </main>

@@ -61,7 +61,7 @@ export default function NavBar({ activeLocation }) {
 
         <div className='relative'>
           <motion.div
-            className='absolute bg-black flex flex-col right-0 gap-6 items-center w-[250px] py-4 border rounded-xl text-xl'
+            className='absolute bg-black flex flex-col right-0 gap-6 items-center w-[250px] py-4 border rounded-xl text-xl z-50'
             variants={dialogVariants}
             animate={openDialog ? 'open' : 'closed'}
           >
