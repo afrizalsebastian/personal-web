@@ -5,7 +5,12 @@ import python from '../assets/python-language.png';
 
 export default function HomePage() {
   return (
-    <div className='flex flex-col gap-2'>
+    <motion.div
+      initial={{ opacity: 0, y: 150 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1.5, ease: 'easeInOut' }}
+      className='flex flex-col gap-2'
+    >
       <div className='relative'>
         <motion.img
           src={nodejs}
@@ -46,7 +51,7 @@ export default function HomePage() {
         </Link>
       </div>
 
-      <div className='h-[100px]' />
-    </div>
+      <div className='h-[50px]' />
+    </motion.div>
   );
 }

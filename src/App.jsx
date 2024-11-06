@@ -10,7 +10,15 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className='text-primary flex flex-col items-center h-full w-full'>
+    <div
+      className='text-primary flex flex-col items-center h-full w-full'
+      style={{
+        backgroundImage: `url(/img/bg-image.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <header className='w-full'>
         <NavBar activeLocation={location.pathname} />
       </header>
