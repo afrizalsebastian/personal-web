@@ -2,6 +2,7 @@ import NavBar from '@components/NavBar/NavBar';
 import AboutPage from '@pages/AboutPage';
 import ExperiencesPage from '@pages/ExperiencesPage';
 import HomePage from '@pages/HomePage';
+import NotFoundPage from '@pages/NotFoundPage';
 import ProjectsPage from '@pages/ProjectsPage';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './styles/styles.css';
@@ -29,6 +30,7 @@ export default function App() {
             <Route path='/about' element={<AboutPage />} />
             <Route path='/experiences' element={<ExperiencesPage />} />
             <Route path='/projects' element={<ProjectsPage />} />
+            <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>
       </main>
