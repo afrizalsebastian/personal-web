@@ -4,7 +4,7 @@ import { MdOutlineClose, MdOutlineMenu } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
 const dialogVariants = {
-  open: { display: 'block', opacity: 1, top: 0 },
+  open: { display: 'flex', opacity: 1, top: 0 },
   closed: { display: 'none', opacity: 0, top: -200 },
 };
 
