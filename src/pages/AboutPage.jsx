@@ -1,3 +1,10 @@
+import PageTitle from '@components/PageTitle/PageTitle';
+
 export default function AboutPage() {
-  return <h1>AboutPage</h1>;
+  return (
+    <div>
+      <PageTitle title='About | Afrizal Sebastian' />
+      <div>About Page</div>
+    </div>
+  );
 }

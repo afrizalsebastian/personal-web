@@ -1,3 +1,4 @@
+import PageTitle from '@components/PageTitle/PageTitle';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import nodejs from '../assets/nodejs.png';
@@ -11,6 +12,7 @@ export default function HomePage() {
       transition={{ duration: 1.5, ease: 'easeInOut' }}
       className='flex flex-col gap-2'
     >
+      <PageTitle title='Afrizal Sebastian' />
       <div className='relative'>
         <motion.img
           src={nodejs}

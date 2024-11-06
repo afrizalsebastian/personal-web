@@ -1,3 +1,8 @@
 export default function NotFoundPage() {
-  return <h1>Not Found Page</h1>;
+  return (
+    <div>
+      <PageTitle title='Not Found | Afrizal Sebastian' />
+      <div>404 Not Found</div>
+    </div>
+  );
 }
