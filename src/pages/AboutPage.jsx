@@ -12,6 +12,11 @@ export default function AboutPage() {
   const onClickOpenDialog = () => {
     setOpenedDialog(true);
   };
+
+  const onClickCloseDialog = () => {
+    setOpenedDialog(false);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 150 }}
@@ -71,7 +76,7 @@ export default function AboutPage() {
         />
       </div>
       <div className='md:h-[75px]' />
-      <DetailAboutDialog opened={openedDialog} />
+      <DetailAboutDialog opened={openedDialog} onCloseDialog={onClickCloseDialog} />
     </motion.div>
   );
 }
