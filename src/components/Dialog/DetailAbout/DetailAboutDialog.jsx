@@ -64,39 +64,47 @@ export default function DetailAboutDialog({ opened, onCloseDialog }) {
       className='fixed top-0 left-0 dialog__container bg-dialog-transparent items-center justify-center'
     >
       <div className='w-full'>
-        <div className='flex max-w-3xl h-[600px] bg-black border m-auto py-8 rounded-md'>
-          <div className='w-[35%] px-6 border-r border-dashed'>
-            <img src={pas} alt='Pas Foto' className='rounded-full w-[70%] m-auto' />
-            <div className='text-center mt-3 font-bold text-[20px]'>
-              Afrizal <span className='text-secondary'>Sebastian</span>
+        <div className='relative'>
+          <button
+            className='md:hidden border rounded-lg bg-black absolute right-1 min-[425px]:right-4 -top-4 z-30'
+            onClick={() => onCloseDialog()}
+          >
+            <MdClose size={32} />
+          </button>
+        </div>
+        <div className='flex flex-col gap-4 md:gap-0 md:flex-row max-w-[90%] md:max-w-3xl h-[600px] bg-black border m-auto py-4 md:py-8 rounded-md'>
+          <div className='w-full md:w-[35%] px-6 md:border-r border-dashed flex gap-2 sm:gap-5 items-center md:block'>
+            <div className='w-[35%] md:w-full'>
+              <img src={pas} alt='Pas Foto' className='rounded-full w-full md:w-[70%] m-auto' />
+              <div className='text-center mt-3 font-bold text-[16px] min-[425px]:text-[20px]'>
+                Afrizal <span className='text-secondary'>Sebastian</span>
+              </div>
             </div>
-            <div className='mt-4 flex flex-col gap-3'>
+            <div className='mt-4 flex flex-1 flex-col gap-3'>
               <ProfileItem label='16 April 2002'>
-                <FaCalendar size={18} className='text-secondary' />
+                <FaCalendar className='text-secondary size-3 min-[425px]:size-5' />
               </ProfileItem>
               <ProfileItem label='Bandung, Indonesia'>
-                <FaLocationCrosshairs size={18} className='text-secondary' />
+                <FaLocationCrosshairs className='text-secondary size-3 min-[425px]:size-5' />
               </ProfileItem>
               <ProfileItem label='+62 852-62623-2703'>
-                <FaPhone size={18} className='text-secondary' />
+                <FaPhone className='text-secondary size-3 min-[425px]:size-5' />
               </ProfileItem>
               <ProfileItem label='sebastiangurning@gmail.com'>
-                <MdMail size={18} className='text-secondary' />
+                <MdMail className='text-secondary size-3 min-[425px]:size-5' />
               </ProfileItem>
-              <a href={docs} download className='px-8 py-2 bg-highlight rounded-xl mt-2 text-center'>
+              <a
+                href={docs}
+                download
+                className='py-2 bg-highlight rounded-xl mt-1 md:mt-2 text-center text-[12px] min-[425px]:text-[16px]'
+              >
                 Download CV
               </a>
             </div>
           </div>
 
-          <div className='flex-1 px-6'>
-            <div className='relative'>
-              <button className='border rounded-lg bg-black absolute -right-11 -top-14' onClick={() => onCloseDialog()}>
-                <MdClose size={40} />
-              </button>
-            </div>
-
-            <div className='h-full overflow-auto hide-scrollbar flex flex-col gap-8'>
+          <div className='flex-1 px-6 overflow-auto hide-scrollbar'>
+            <div className='flex flex-col gap-8'>
               <div className='flex flex-col gap-4'>
                 <div className='font-bold text-[18px] pb-4 border-b border-dashed'>
                   About <span className='text-secondary'>Me</span>
@@ -192,6 +200,15 @@ export default function DetailAboutDialog({ opened, onCloseDialog }) {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className='relative'>
+            <button
+              className='hidden md:block border rounded-lg bg-black absolute -right-6 -top-14 z-30'
+              onClick={() => onCloseDialog()}
+            >
+              <MdClose size={40} />
+            </button>
           </div>
         </div>
       </div>
