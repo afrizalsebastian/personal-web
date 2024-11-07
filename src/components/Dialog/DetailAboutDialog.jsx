@@ -43,7 +43,7 @@ export default function DetailAboutDialog({ opened, onCloseDialog }) {
                 <FaPhone size={18} className='text-highlight' />
               </ProfileItem>
               <ProfileItem label='sebastiangurning@gmail.com'>
-                <MdMail size={30} className='text-highlight' />
+                <MdMail size={18} className='text-highlight' />
               </ProfileItem>
               <a href={docs} download className='px-8 py-2 bg-secondary rounded-xl mt-2 text-center'>
                 Download CV
