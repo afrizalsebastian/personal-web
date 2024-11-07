@@ -1,10 +1,17 @@
+import DetailAboutDialog from '@components/Dialog/DetailAboutDialog';
 import PageTitle from '@components/PageTitle/PageTitle';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import aeroplane from '../assets/aeroplane.png';
 import sebastian from '../assets/sebastian.jpg';
 
 export default function AboutPage() {
+  const [openedDialog, setOpenedDialog] = useState(false);
+
+  const onClickOpenDialog = () => {
+    setOpenedDialog(true);
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 150 }}
@@ -30,7 +37,7 @@ export default function AboutPage() {
               </span>
             </div>
             <div className='text-[12px] md:text-[16px] mt-2 text-justify md:text-left'>
-              My name is <span className='text-highlight font-bold'>Afrizal Sebastian</span>, and I am a fresh graduate
+              My name is <span className='text-secondary font-bold'>Afrizal Sebastian</span>, and I am a fresh graduate
               majoring Informatics / Computer Science at Bandung Institute of Technology. Currently, I am actively
               learning many things such as web development, backend services, and mobile development. My main interests
               lie in the field of Web Development and Software Engineering.
@@ -38,7 +45,10 @@ export default function AboutPage() {
           </div>
 
           <div className='text-center md:text-left z-10'>
-            <button className='bg-highlight px-[20px] py-[8px] md:px-[28px] md:py-[10px] w-fit rounded-3xl text-[12px] md:text-[16px]'>
+            <button
+              className='bg-highlight px-[20px] py-[8px] md:px-[28px] md:py-[10px] w-fit rounded-3xl text-[12px] md:text-[16px]'
+              onClick={onClickOpenDialog}
+            >
               Learn More
             </button>
           </div>
@@ -61,6 +71,7 @@ export default function AboutPage() {
         />
       </div>
       <div className='md:h-[75px]' />
+      <DetailAboutDialog opened={openedDialog} />
     </motion.div>
   );
 }

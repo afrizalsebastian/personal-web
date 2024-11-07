@@ -10,6 +10,7 @@ export default {
         primary: '#F0EDCF',
         secondary: '#0B60B0',
         highlight: '#40A2D8',
+        'dialog-transparent': 'rgba(0, 0, 0, 0.8)',
       },
     },
   },
