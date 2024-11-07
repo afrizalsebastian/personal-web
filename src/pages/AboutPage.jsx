@@ -1,10 +1,10 @@
-import DetailAboutDialog from '@components/Dialog/DetailAboutDialog';
+import aeroplane from '@assets/aeroplane.png';
+import sebastian from '@assets/sebastian.jpg';
+import DetailAboutDialog from '@components/Dialog/DetailAbout/DetailAboutDialog';
 import PageTitle from '@components/PageTitle/PageTitle';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
-import aeroplane from '../assets/aeroplane.png';
-import sebastian from '../assets/sebastian.jpg';
 
 export default function AboutPage() {
   const [openedDialog, setOpenedDialog] = useState(false);

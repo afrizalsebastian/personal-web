@@ -1,9 +1,9 @@
+import nodejs from '@assets/nodejs.png';
+import python from '@assets/python-language.png';
 import PageTitle from '@components/PageTitle/PageTitle';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
-import nodejs from '../assets/nodejs.png';
-import python from '../assets/python-language.png';
 
 export default function HomePage() {
   return (
