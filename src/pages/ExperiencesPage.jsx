@@ -1,13 +1,17 @@
+import CarouselCard from '@components/Card/CarouselCard';
+import CarouselAlternative from '@components/Carousel/CarouselAlt';
 import PageTitle from '@components/PageTitle/PageTitle';
-import { TypeAnimation } from 'react-type-animation';
 
 export default function ExperiencesPage() {
   return (
     <div>
       <PageTitle title='Experiences | Afrizal Sebastian' />
-      <div className='text-3xl'>
-        <TypeAnimation sequence={['Experiences Page Under Development', 5000, 'Thank You!', 2000]} repeat={Infinity} />{' '}
-      </div>
+      <CarouselAlternative className='w-full'>
+        {[...Array(20)].map((it, idx) => (
+          <CarouselCard key={idx} idx={idx} />
+        ))}
+      </CarouselAlternative>
+
       <div className='h-[50px]'></div>
     </div>
   );
