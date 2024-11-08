@@ -34,12 +34,21 @@ export default function CarouselAlternative({ className, children }) {
   });
 
   /**
+   * Paging
+   */
+  const [numberOfCard, setNumberOfCard] = useState(
+    children.length - (window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1,
+  );
+  const [pageNumber, setNumberPage] = useState(1);
+
+  /**
    * Navigaiton Button
    */
   const scrollToNextElmnt = (current) => {
     const index = current + 1;
     const cardToDisplay = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
     if (index <= children.length - cardToDisplay) {
+      setNumberPage((prev) => prev + 1);
       itemRefs.current[index]?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
       firstVisibleItemRef.current = index;
     }
@@ -47,6 +56,7 @@ export default function CarouselAlternative({ className, children }) {
   const scrollToPrevElmnt = (current) => {
     const index = current - 1;
     if (index >= 0) {
+      setNumberPage((prev) => prev - 1);
       itemRefs.current[index]?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
       firstVisibleItemRef.current = index;
     }
@@ -111,10 +121,16 @@ export default function CarouselAlternative({ className, children }) {
       scrollToNextElmnt(firstVisibleItemRef.current);
   };
 
+  const resizeWindow = () => {
+    setNumberOfCard(children.length - (window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1);
+  };
+
   useEffect(() => {
+    window.addEventListener('resize', resizeWindow);
     document.addEventListener('keydown', onArrowKeyPress);
 
     return () => {
+      window.removeEventListener('resize', resizeWindow);
       document.removeEventListener('keydown', onArrowKeyPress);
     };
   }, []);
@@ -140,6 +156,9 @@ export default function CarouselAlternative({ className, children }) {
         <button className='hover:text-highlight' onClick={() => scrollToPrevElmnt(firstVisibleItemRef.current)}>
           <FaCircleChevronLeft className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
         </button>
+        <div>
+          {pageNumber} / {numberOfCard}
+        </div>
         <button className='hover:text-highlight' onClick={() => scrollToNextElmnt(firstVisibleItemRef.current)}>
           <FaCircleChevronRight className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
         </button>
