@@ -4,13 +4,18 @@ import PageTitle from '@components/PageTitle/PageTitle';
 
 export default function ExperiencesPage() {
   return (
-    <div>
+    <div className='flex flex-col gap-8 sm:gap-10 md:gap-16'>
       <PageTitle title='Experiences | Afrizal Sebastian' />
-      <CarouselAlternative className='w-full'>
-        {[...Array(20)].map((it, idx) => (
-          <CarouselCard key={idx} idx={idx} />
-        ))}
-      </CarouselAlternative>
+      <div className='font-bold text-[28px] sm:text-[32px] md:text-[40px] pb-2 border-b border-dashed'>
+        Work <span className='text-secondary'>Experiences</span>
+      </div>
+      <div className='w-[300px] sm:w-[450px] md:w-[650px] lg:w-[850px] mx-auto'>
+        <CarouselAlternative>
+          {[...Array(4)].map((it, idx) => (
+            <CarouselCard key={idx} idx={idx} />
+          ))}
+        </CarouselAlternative>
+      </div>
 
       <div className='h-[50px]'></div>
     </div>

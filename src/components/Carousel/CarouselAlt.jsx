@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import { Children, useMemo, useRef, useState } from 'react';
+import { Children, useEffect, useMemo, useRef, useState } from 'react';
+import { FaCircleChevronLeft, FaCircleChevronRight } from 'react-icons/fa6';
 
 function useDragToScroll(initialState) {
   const [isDragging, setIsDragging] = useState(initialState.isDragging);
@@ -35,13 +36,16 @@ export default function CarouselAlternative({ className, children }) {
   /**
    * Navigaiton Button
    */
-  const scrollToNextElmnt = (index) => {
-    if (index < 20) {
+  const scrollToNextElmnt = (current) => {
+    const index = current + 1;
+    const cardToDisplay = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+    if (index <= children.length - cardToDisplay) {
       itemRefs.current[index]?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
       firstVisibleItemRef.current = index;
     }
   };
-  const scrollToPrevElmnt = (index) => {
+  const scrollToPrevElmnt = (current) => {
+    const index = current - 1;
     if (index >= 0) {
       itemRefs.current[index]?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
       firstVisibleItemRef.current = index;
@@ -68,7 +72,9 @@ export default function CarouselAlternative({ className, children }) {
 
   const handleScroll = () => {
     const visibleElements = itemRefs.current.filter((it) => isElementInViewport(it));
-    firstVisibleItemRef.current = parseInt(visibleElements[0].id);
+    firstVisibleItemRef.current = visibleElements[0]?.id
+      ? parseInt(visibleElements[0]?.id)
+      : firstVisibleItemRef.current;
     handleEndScroll();
   };
 
@@ -97,15 +103,26 @@ export default function CarouselAlternative({ className, children }) {
     containerRef.current.scrollLeft = dragState.scrollLeft - walk;
   };
 
+  const onArrowKeyPress = (event) => {
+    if (event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A')
+      scrollToPrevElmnt(firstVisibleItemRef.current);
+
+    if (event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D')
+      scrollToNextElmnt(firstVisibleItemRef.current);
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', onArrowKeyPress);
+
+    return () => {
+      document.removeEventListener('keydown', onArrowKeyPress);
+    };
+  }, []);
+
   return (
     <>
-      <div className='relative'>
-        <button className='absolute -top-10' onClick={() => scrollToPrevElmnt(firstVisibleItemRef.current - 1)}>
-          Prev
-        </button>
-      </div>
       <div
-        className={`flex gap-8 overflow-auto hide-scrollbar ${className ?? ''}`}
+        className={`flex gap-4 overflow-auto hide-scrollbar ${className ?? ''}`}
         ref={containerRef}
         onMouseDown={onMouseDown}
         onMouseLeave={onMouseLeave}
@@ -119,9 +136,12 @@ export default function CarouselAlternative({ className, children }) {
           </div>
         ))}
       </div>
-      <div className='relative'>
-        <button className='absolute' onClick={() => scrollToNextElmnt(firstVisibleItemRef.current + 1)}>
-          Next
+      <div className='flex justify-center gap-6 items-center mt-10 -ml-4 sm:-ml-6 md:-ml-1 lg:-ml-3'>
+        <button className='hover:text-highlight' onClick={() => scrollToPrevElmnt(firstVisibleItemRef.current)}>
+          <FaCircleChevronLeft className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
+        </button>
+        <button className='hover:text-highlight' onClick={() => scrollToNextElmnt(firstVisibleItemRef.current)}>
+          <FaCircleChevronRight className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
         </button>
       </div>
     </>
