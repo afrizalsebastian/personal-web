@@ -2,7 +2,6 @@ import docs from '@assets/docs/docs.pdf';
 import pas from '@assets/pas.jpg';
 import TimelineItem from '@components/TimelineItem/TimelineItem';
 import { educationItemTimeline, experienceItemTimeline } from '@data';
-import { motion } from 'framer-motion';
 import { FaCalendar, FaLocationCrosshairs, FaPhone } from 'react-icons/fa6';
 import { IoMdArrowDropright } from 'react-icons/io';
 import { MdClose, MdMail } from 'react-icons/md';
@@ -19,20 +18,12 @@ import {
   SiVuedotjs,
 } from 'react-icons/si';
 import { Link } from 'react-router-dom';
+import Dialog from '../Dialog';
 import ProfileItem from './ProfileItem/ProfileItem';
-
-const dialogVariants = {
-  open: { display: 'flex', opacity: 1 },
-  closed: { display: 'none', opacity: 0 },
-};
 
 export default function DetailAboutDialog({ opened, onCloseDialog }) {
   return (
-    <motion.div
-      variants={dialogVariants}
-      animate={opened ? 'open' : 'closed'}
-      className='fixed top-0 left-0 dialog__container bg-dialog-transparent items-center justify-center'
-    >
+    <Dialog opened={opened}>
       <div className='w-full'>
         <div className='relative'>
           <button
@@ -182,6 +173,6 @@ export default function DetailAboutDialog({ opened, onCloseDialog }) {
           </div>
         </div>
       </div>
-    </motion.div>
+    </Dialog>
   );
 }
