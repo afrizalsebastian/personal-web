@@ -36,9 +36,9 @@ export default function CarouselAlternative({ className, children }) {
   /**
    * Paging
    */
-  const [numberOfCard, setNumberOfCard] = useState(
-    children.length - (window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1,
-  );
+  const pages = children.length - (window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3) + 1;
+  const cardToDisplay = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  const [numberOfCard, setNumberOfCard] = useState(pages >= 2 ? pages : 1);
   const [pageNumber, setNumberPage] = useState(1);
 
   /**
@@ -46,7 +46,6 @@ export default function CarouselAlternative({ className, children }) {
    */
   const scrollToNextElmnt = (current) => {
     const index = current + 1;
-    const cardToDisplay = window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3;
     if (index <= children.length - cardToDisplay) {
       setNumberPage((prev) => prev + 1);
       itemRefs.current[index]?.scrollIntoView({ behavior: 'smooth', inline: 'start' });
@@ -138,7 +137,7 @@ export default function CarouselAlternative({ className, children }) {
   return (
     <>
       <div
-        className={`flex gap-4 overflow-auto hide-scrollbar ${className ?? ''}`}
+        className={`flex gap-4 overflow-auto hide-scrollbar ${children.length <= cardToDisplay ? 'justify-center' : ''} ${className ?? ''}`}
         ref={containerRef}
         onMouseDown={onMouseDown}
         onMouseLeave={onMouseLeave}
@@ -156,9 +155,9 @@ export default function CarouselAlternative({ className, children }) {
         <button className='hover:text-highlight' onClick={() => scrollToPrevElmnt(firstVisibleItemRef.current)}>
           <FaCircleChevronLeft className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
         </button>
-        <div>
+        {/* <div>
           {pageNumber} / {numberOfCard}
-        </div>
+        </div> */}
         <button className='hover:text-highlight' onClick={() => scrollToNextElmnt(firstVisibleItemRef.current)}>
           <FaCircleChevronRight className='size-[30px] sm:size-[32px] md:size-[36px] lg:size-[40px]' />
         </button>
