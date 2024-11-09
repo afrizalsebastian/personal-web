@@ -1,6 +1,7 @@
 import docs from '@assets/docs/docs.pdf';
 import pas from '@assets/pas.jpg';
 import TimelineItem from '@components/TimelineItem/TimelineItem';
+import { educationItemTimeline, experienceItemTimeline } from '@data';
 import { motion } from 'framer-motion';
 import { FaCalendar, FaLocationCrosshairs, FaPhone } from 'react-icons/fa6';
 import { IoMdArrowDropright } from 'react-icons/io';
@@ -26,37 +27,6 @@ const dialogVariants = {
 };
 
 export default function DetailAboutDialog({ opened, onCloseDialog }) {
-  const educationItemTimeline = [
-    {
-      date: 'Aug 2020 - Oct 2024',
-      company: 'Institut Teknologi Bandung',
-      title: 'Informatics / Computer Science',
-    },
-    {
-      date: 'June 2017 - Apr 2020',
-      company: 'SMAN 2 Balige',
-      title: 'Science',
-    },
-  ];
-
-  const experienceItemTimeline = [
-    {
-      date: 'May 2023 - Sept 2024',
-      company: 'eHealth.co.id',
-      title: 'Junior Software Engineer · Intern',
-    },
-    {
-      date: 'Dec 2022 - Dec 2023',
-      company: 'Finplan.id',
-      title: 'Frontend Developer · Intern',
-    },
-    {
-      date: 'Aug 2023 - Sept 2023',
-      company: 'Jagotes ID',
-      title: 'Frontend Developer · Intern',
-    },
-  ];
-
   return (
     <motion.div
       variants={dialogVariants}
