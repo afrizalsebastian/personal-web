@@ -2,7 +2,19 @@ import DetailCarousel from '@components/Dialog/DetailCarousel/DetailCarousel';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 
-export default function CarouselCard({ date, company, title, logo, about, position, location, description, tech }) {
+export default function CarouselCard({
+  date,
+  company,
+  title,
+  logo,
+  about,
+  position,
+  location,
+  description,
+  tech,
+  name,
+  documentation,
+}) {
   const [mouseDownTime, setMouseDownTime] = useState(0);
   const [cardHover, setCardHover] = useState(false);
   const [openDetail, setOpenDetail] = useState(false);
@@ -46,7 +58,7 @@ export default function CarouselCard({ date, company, title, logo, about, positi
           <div className='absolute left-0 bottom-6 w-full'>
             {cardHover && (
               <div className='bg-highlight p-2 w-4/5 m-auto rounded-md'>
-                <p className='text-[16px] font-bold'>{company}</p>
+                <p className='text-[16px] font-bold'>{name ? name : company}</p>
                 <p className='text-[12px]'>{title}</p>
               </div>
             )}
@@ -55,7 +67,7 @@ export default function CarouselCard({ date, company, title, logo, about, positi
       </motion.div>
       <DetailCarousel
         opened={openDetail}
-        {...{ date, company, title, logo, about, position, location, description, tech }}
+        {...{ date, company, title, logo, about, position, location, description, tech, name, documentation }}
         onCloseDialog={onClickCloseDialog}
       />
     </>

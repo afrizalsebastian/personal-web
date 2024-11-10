@@ -15,7 +15,7 @@ const experiences = [
       'Implementation of document datarecap',
       'Participated in the implementation of mobile friendly electronic medical records',
     ],
-    tech: ['SiPolymerproject', 'SiTypescript', 'SiKotlin', 'SiSpringboot', 'SiOdoo'],
+    tech: ['SiPolymerproject', 'SiTypescript', 'SiKotlin', 'SiSpringboot', 'SiOdoo', 'SiPython'],
   },
   {
     date: 'Dec 2022 - Dec 2023',

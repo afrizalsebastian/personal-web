@@ -6,6 +6,7 @@ import {
   SiKotlin,
   SiOdoo,
   SiPolymerproject,
+  SiPython,
   SiQuasar,
   SiSpringboot,
   SiTailwindcss,
@@ -26,6 +27,7 @@ const iconMap = {
   SiTailwindcss,
   SiTypescript,
   SiVuedotjs,
+  SiPython,
 };
 
 export default function DetailCarousel({
@@ -40,6 +42,8 @@ export default function DetailCarousel({
   description,
   onCloseDialog,
   tech,
+  name,
+  documentation,
 }) {
   return (
     <Dialog opened={opened}>
@@ -55,7 +59,7 @@ export default function DetailCarousel({
           </div>
           <div className='flex flex-col gap-6 h-full overflow-auto hide-scrollbar'>
             <div className='flex items-center gap-4 border-b border-dashed pb-2'>
-              <h2 className='text-[20px] sm:text-[24px]'>{company}</h2>
+              <h2 className='text-[20px] sm:text-[24px]'>{name ? name : company}</h2>
               <p className='text-secondary text-[12px] sm:text-[16px]'>{date}</p>
             </div>
             <div className='flex-col sm:flex-row items-center sm:items-start flex gap-6'>
@@ -63,6 +67,7 @@ export default function DetailCarousel({
               <div className='text-[12px] sm:text-[14px] text-justify sm:text-left'>{about}</div>
             </div>
             <div className='text-[12px] sm:text-[14px]'>
+              <p className='text-[20px] sm:text-[24px] font-bold'>{name ? company : ''}</p>
               <p className='text-[20px] sm:text-[24px] font-bold'>{title}</p>
               <p className='text-highlight'>{position}</p>
               <p className='text-highlight'>{location}</p>
@@ -86,6 +91,16 @@ export default function DetailCarousel({
                   })}
                 </div>
               </div>
+              {documentation && (
+                <div className='mt-4'>
+                  <p className='text-[20px] sm:text-[24px] font-bold'>Documentation</p>
+                  <div className='flex flex-col gap-4'>
+                    {documentation.map((it, idx) => (
+                      <img key={idx} src={it} alt='documentations' className='rounded-lg' />
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
