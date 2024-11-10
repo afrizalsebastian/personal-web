@@ -1,5 +1,5 @@
 import { educationItemTimeline, experienceItemTimeline } from './about';
 import { experiences } from './experience';
-import { projects } from './projects';
+import { portoflio } from './portfolio';
 
-export { educationItemTimeline, experienceItemTimeline, experiences, projects };
+export { educationItemTimeline, experienceItemTimeline, experiences, portoflio };

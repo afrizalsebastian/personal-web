@@ -1,9 +1,9 @@
-const projects = [
+const portoflio = [
   {
     date: 'Aug 2023 - Dec 2023',
     company: 'Pertamina Trans Kontinental Port Surabaya',
     name: 'BUNCIS Pertamina Kontinental',
-    logo: './img/projects/pertamina.jpg',
+    logo: './img/portfolio/pertamina.jpg',
     about:
       'BUNCIS (Bunker Calculation & Identification System) Pertamina Kontinental is an automated ROB (Remain On Board) Calculation system deployed at Pertamina Trans Kontinental Surabaya Port, operating on both Web and Android platforms.',
     title: 'Web and Backend Developer',
@@ -14,7 +14,7 @@ const projects = [
       "Ensured the system's optimal performance over a span of approximately 3 months",
       'Deployed the backend and web using VPS',
     ],
-    documentation: ['./img//projects-documentation/buncis.png'],
+    documentation: ['./img/portfolio-documentation/buncis.png'],
   },
   {
     date: 'Nov 2023 - Dec 2023',
@@ -31,8 +31,8 @@ const projects = [
       'Create the cloud architecture and manage cloud resources in GCP',
       'Deploy the backend services',
     ],
-    documentation: ['./img/projects-documentation/diabetless-1.png', './img/projects-documentation/diabetless-2.png'],
+    documentation: ['./img/portfolio-documentation/diabetless-1.png', './img/portfolio-documentation/diabetless-2.png'],
   },
 ];
 
-export { projects };
+export { portoflio };

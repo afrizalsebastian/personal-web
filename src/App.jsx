@@ -3,7 +3,7 @@ import AboutPage from '@pages/AboutPage';
 import ExperiencesPage from '@pages/ExperiencesPage';
 import HomePage from '@pages/HomePage';
 import NotFoundPage from '@pages/NotFoundPage';
-import ProjectsPage from '@pages/ProjectsPage';
+import PortfolioPage from '@pages/PortfolioPage';
 import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa6';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import './styles/styles.css';
@@ -30,7 +30,7 @@ export default function App() {
             <Route path='/' element={<HomePage />} />
             <Route path='/about' element={<AboutPage />} />
             <Route path='/experiences' element={<ExperiencesPage />} />
-            <Route path='/projects' element={<ProjectsPage />} />
+            <Route path='/portfolio' element={<PortfolioPage />} />
             <Route path='*' element={<NotFoundPage />} />
           </Routes>
         </div>

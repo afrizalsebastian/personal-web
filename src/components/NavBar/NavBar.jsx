@@ -25,8 +25,8 @@ export default function NavBar({ activeLocation }) {
       label: 'Experiences',
     },
     {
-      to: '/projects',
-      label: 'Projects',
+      to: '/portfolio',
+      label: 'Portfolio',
     },
   ];
 
