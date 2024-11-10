@@ -72,31 +72,40 @@ export default function DetailCarousel({
               <p className='text-highlight'>{position}</p>
               <p className='text-highlight'>{location}</p>
               <p className='text-highlight'>{date}</p>
-              <div className='mt-2'>
-                <p>Description: </p>
-                <ul className='list-disc ml-4'>
-                  {description.map((it, index) => (
-                    <li key={index}>{it}</li>
-                  ))}
-                </ul>
-              </div>
-              <div className='mt-2'>
-                <p>Tech Stack: </p>
-                <div className='flex gap-2 mt-1'>
-                  {tech.map((techName, techIndex) => {
-                    const IconComponent = iconMap[techName];
-                    return IconComponent ? (
-                      <IconComponent key={techIndex} className='size-[20px] sm:size-[30px]' />
-                    ) : null;
-                  })}
+              {description && (
+                <div className='mt-2'>
+                  <p>Description: </p>
+                  <ul className='list-disc ml-4'>
+                    {description.map((it, index) => (
+                      <li key={index}>{it}</li>
+                    ))}
+                  </ul>
                 </div>
-              </div>
+              )}
+              {tech && (
+                <div className='mt-2'>
+                  <p>Tech Stack: </p>
+                  <div className='flex gap-2 mt-1'>
+                    {tech.map((techName, techIndex) => {
+                      const IconComponent = iconMap[techName];
+                      return IconComponent ? (
+                        <IconComponent key={techIndex} className='size-[20px] sm:size-[30px]' />
+                      ) : null;
+                    })}
+                  </div>
+                </div>
+              )}
               {documentation && (
                 <div className='mt-4'>
                   <p className='text-[20px] sm:text-[24px] font-bold'>Documentation</p>
-                  <div className='flex flex-col gap-4'>
+                  <div className={title === 'Hobbies' ? 'flex flex-wrap gap-4 justify-evenly' : 'flex flex-col gap-4'}>
                     {documentation.map((it, idx) => (
-                      <img key={idx} src={it} alt='documentations' className='rounded-lg' />
+                      <img
+                        key={idx}
+                        src={it}
+                        alt='documentations'
+                        className={`rounded-lg ${title === 'Hobbies' ? 'sm:w-[45%]' : ''}`}
+                      />
                     ))}
                   </div>
                 </div>

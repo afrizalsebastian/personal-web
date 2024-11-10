@@ -33,6 +33,21 @@ const portoflio = [
     ],
     documentation: ['./img/portfolio-documentation/diabetless-1.png', './img/portfolio-documentation/diabetless-2.png'],
   },
+  {
+    name: 'Photography',
+    logo: './img/portfolio/camera.png',
+    about:
+      'Photography is one of the hobbies that I do in my spare time. I love taking photos especially of buildings. Apart from that, I also enjoy the process of exploring unique angles and the right lighting to produce interesting images.',
+    title: 'Hobbies',
+    documentation: [
+      './img/portfolio-documentation/bandung-1.jpeg',
+      './img/portfolio-documentation/bandung-2.jpeg',
+      './img/portfolio-documentation/bandung-3.jpeg',
+      './img/portfolio-documentation/bandung-4.jpeg',
+      './img/portfolio-documentation/katedral-1.jpeg',
+      './img/portfolio-documentation/katedral-2.jpeg',
+    ],
+  },
 ];
 
 export { portoflio };
