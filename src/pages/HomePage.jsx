@@ -56,7 +56,7 @@ export default function HomePage() {
           Get in Touch
         </Link>
       </div>
-      <div className='h-[50px]' />
+      <div className='h-[25px] sm:h-[35px] md:h-[50px]' />
     </motion.div>
   );
 }

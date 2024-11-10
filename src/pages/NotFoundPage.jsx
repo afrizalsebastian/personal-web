@@ -12,7 +12,7 @@ export default function NotFoundPage() {
         src={notfound}
         alt='404 Not Found'
       />
-      <div className='h-[50px]'></div>
+      <div className='h-[25px] sm:h-[35px] md:h-[50px]' />
     </div>
   );
 }
