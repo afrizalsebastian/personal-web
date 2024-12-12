@@ -34,3 +34,7 @@ body {
 .hide-scrollbar {
   scrollbar-width: none;
 }
+
+.carousel-alt:hover > :not(:hover) {
+  opacity: 60%;
+}

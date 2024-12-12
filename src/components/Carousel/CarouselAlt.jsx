@@ -137,7 +137,7 @@ export default function CarouselAlternative({ className, children }) {
   return (
     <>
       <div
-        className={`flex gap-4 overflow-auto hide-scrollbar ${children.length <= cardToDisplay ? 'justify-center' : ''} ${className ?? ''}`}
+        className={`carousel-alt flex gap-4 overflow-auto hide-scrollbar ${children.length <= cardToDisplay ? 'justify-center' : ''} ${className ?? ''}`}
         ref={containerRef}
         onMouseDown={onMouseDown}
         onMouseLeave={onMouseLeave}
